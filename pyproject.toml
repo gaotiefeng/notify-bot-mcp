@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "notify-bot-mcp"
+version = "0.1.0"
+description = "An MCP server for sending notifications to chat bots. Starting with WeCom."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["mcp==2.3.0", "httpx>=0.28.1,<0.29"]
+
+[project.urls]
+Repository = "https://github.com/gaotiefeng/notify-bot-mcp"
+
+[project.scripts]
+notify-bot-mcp = "notify_bot_mcp.server:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["src"]
+testpaths = ["tests"]
